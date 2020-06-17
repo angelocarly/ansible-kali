@@ -1,0 +1,21 @@
+---
+- name: Install gdb
+  apt:
+    name: gdb
+    state: latest
+    update_cache: true
+
+- name: Install peda
+  git:
+    repo: https://github.com/longld/peda.git
+    version: master
+    accept_hostkey: yes
+    dest: /root/peda/
+     
+- name: Copy .gdbinit
+  copy:
+    src: gdbinit
+    dest: /root/.gdbinit
+    owner: root
+    group: root
+    mode: 0644

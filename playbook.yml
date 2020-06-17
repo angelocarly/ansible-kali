@@ -2,4 +2,7 @@
 - hosts: kali
   become: true
   roles:
+    - base
+    - dotfiles
+    - zsh
     - gdb-peda

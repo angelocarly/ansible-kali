@@ -6,4 +6,4 @@
     - dotfiles
     - zsh
     - neovim
-      #- gdb-peda
+    - gdb-peda

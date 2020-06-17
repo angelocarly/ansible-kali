@@ -23,13 +23,13 @@
   when: not stat_oh_my_zsh_result.stat.exists
   become: true
 
-- name: Stowing zsh and oh-my-zsh
+- name: Stowing zsh
   shell:
     chdir: /root/dotfiles
     cmd: stow zsh
   when: not stat_rc_result.stat.exists
 
-- name: Stowing zsh and oh-my-zsh
+- name: Stowing oh-my-zsh
   shell:
     chdir: /root/dotfiles
     cmd: stow oh-my-zsh
@@ -38,3 +38,9 @@
 - name: Changing default shell
   shell:
     cmd: chsh -s /bin/zsh
+
+- name: Installing fzf
+  become: true
+  apt:
+    name: fzf
+

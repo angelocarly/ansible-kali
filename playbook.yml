@@ -5,4 +5,5 @@
     - base
     - dotfiles
     - zsh
-    - gdb-peda
+    - neovim
+      #- gdb-peda

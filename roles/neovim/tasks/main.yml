@@ -1,0 +1,14 @@
+---
+- name: Installing neovim
+  become: true
+  apt:
+    name: neovim
+
+- name: Stowing vimrc
+  shell:
+    chdir: /root/dotfiles
+    cmd: stow neovim
+
+- name: Installing neovim plugins
+  shell:
+    cmd: nvim +PlugInstall +qall

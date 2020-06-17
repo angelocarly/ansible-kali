@@ -5,7 +5,16 @@
   register: installation
   become: true
 
-- name: Cloning dotfiles
+- name: Cloning dotfiles (root)
+  git:
+    repo: https://github.com/angelocarly/dotfiles.git
+    version: vm
+    accept_hostkey: yes
+    dest: ~/dotfiles
+
+- name: Cloning dotfiles (user)
+  become: true
+  become_user: "{{ username }}"
   git:
     repo: https://github.com/angelocarly/dotfiles.git
     version: vm

@@ -1,4 +1,10 @@
 ---
+
+- name: Installing git
+  apt: pkg=git state=latest
+  register: installation
+  become: true
+
 - name: Cloning dotfiles
   git:
     repo: https://github.com/angelocarly/dotfiles.git

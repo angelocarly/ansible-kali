@@ -1,6 +1,6 @@
 ---
-- name: Installing Zsh and git
-  apt: pkg=zsh,git state=latest
+- name: Installing Zsh
+  apt: pkg=zsh state=latest
   register: installation
   become: true
 

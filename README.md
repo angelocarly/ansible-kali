@@ -2,7 +2,7 @@
 Configurations of my personal Kali setup
 
 ## Configuration
-Set the ip of your VM in `inventory/inventory.yml` under `[kali]`
+Set the ip of your VM in `inventory/inventory.yml` under `[kali]`  
 Set your username in `inventory/inventory.yml` under `[kali:vars]`
 
 ## Running

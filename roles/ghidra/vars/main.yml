@@ -1,0 +1,5 @@
+---
+pkgver: 9.1.2
+ghidra_url: https://www.ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip
+ghidra_name: "ghidra_{{pkgver}}_PUBLIC"
+openjdk_version: 11

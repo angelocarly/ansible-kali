@@ -1,0 +1,45 @@
+---
+  
+- name: Installing openjdk
+  apt:
+    name: "openjdk-{{ openjdk_version }}-jdk"
+    state: present
+
+- name: Installing openjre-headless
+  apt:
+    name: "openjdk-{{ openjdk_version }}-jre-headless"
+    state: present
+
+- name: Check if Ghidra is installed
+  stat:
+    path: "/opt/ghidra"
+  register: ghidra_details
+
+- name: Downloading Ghidra
+  unarchive:
+    remote_src: yes
+    src: "{{ ghidra_url }}"
+    dest: /tmp/
+  when: not ghidra_details.stat.exists
+
+- name: Moving build files
+  command: mv "/tmp/{{ ghidra_name }}" "/opt/ghidra"
+  when: not ghidra_details.stat.exists
+
+- name: Copying ghidra.desktop
+  copy:
+    src: ghidra.desktop
+    dest: "/usr/share/applications/ghidra.desktop"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
+  when: not ghidra_details.stat.exists
+
+- name: Copying ghidra.png
+  copy:
+    src: ghidra.png
+    dest: "/opt/ghidra/ghidra.png"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
+  when: not ghidra_details.stat.exists

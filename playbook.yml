@@ -3,7 +3,8 @@
   become: true
   roles:
     - base
-    - dotfiles
-    - zsh
-    - neovim
-    - gdb-peda
+      #- dotfiles
+      #- zsh
+      #- neovim
+      #- gdb-peda
+    - ghidra
